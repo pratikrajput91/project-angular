@@ -16,8 +16,8 @@ export class RestaurantService {
         return this.http.post<Restaurant>(this.baseUrl+"/signup",restaurant,{headers: this.headers})
 
     }
-    signInDetailsOfRestaurant(email:string,password:string) {
-        return this.http.get<Restaurant>(this.baseUrl+"/loginuser/"+email+"/"+password);
+    signInDetailsOfRestaurant(email:string):Observable<Restaurant> {
+        return this.http.get<Restaurant>(this.baseUrl+"/loginuser/"+email);
         
     }
     

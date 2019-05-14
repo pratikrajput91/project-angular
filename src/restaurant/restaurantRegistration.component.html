@@ -1,9 +1,11 @@
 <div class="container" style="width:40%">
     <h4 class="text-center">Add a Restaurant</h4>
-    <form class="form-horizontal" [formGroup] = "restroForm" (ngSubmit) = "onSubmit()">
+    {{ restroForm.value | json}}
+
+    <form class="form-horizontal" [formGroup] = "restroForm" (ngSubmit) = "onSubmit()" >
         <div class="form-group" >
             <label class="form-label">Restaurant Name</label>
-            <input type="text" class="form-control" id="restaurantname" placeholder="Enter Restaurant Name" [(ngModel)]="restaurant.restaurantname"  name="restaurantname"
+            <input type="text" class="form-control" id="restaurantname" placeholder="Enter Restaurant Name" name="restaurantname"
             formControlName = "restaurantname" [class.is-invalid]="restaurantname.touched && restaurantname.invalid" required/>
 
             <div [class.d-none] = "restaurantname.untouched || restaurantname.valid" class="text-danger">
@@ -13,7 +15,7 @@
 
         <div class="form-group">
             <label class="form-label">Email-Id</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter e-mail"  name="email" [(ngModel)]="restaurant.email" 
+            <input type="email" class="form-control" id="email" placeholder="Enter e-mail"  name="email" 
             formControlName = "email" [class.is-invalid]="email.touched && email.invalid" required/>
             <div [class.d-none] = "email.untouched || email.valid" class="text-danger">
                 Email is required
@@ -22,7 +24,7 @@
 
         <div class="form-group">
             <label class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Enter password" [(ngModel)]="restaurant.password" 
+            <input type="password" class="form-control" id="password" placeholder="Enter password"
             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
             title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
              name="password" 
@@ -38,7 +40,7 @@
          <div class="form-group">
             <label class="form-label">Contact</label>
             <input type="number" class="form-control"  
-                placeholder="Enter Mobile Number"  name="contact" [(ngModel)]="restaurant.contact" 
+                placeholder="Enter Mobile Number"  name="contact" 
                  formControlName = "contact" pattern="^\d{10}$" [class.is-invalid]="contact.touched && contact.invalid" required />
                  <div [class.d-none] = "contact.untouched || contact.valid" class="text-danger">Contact number is required</div>
                     <div class="text-danger" *ngIf="contact.errors?.pattern" >Contact number must be 10 digit</div>
@@ -59,7 +61,7 @@
 
         <div class="form-group">
             <label class="form-label">City</label>
-            <select class="form-control" id="city" name="city"  [(ngModel)]="restaurant.city" 
+            <select class="form-control" id="city" name="city" 
             formControlName = "city" [class.is-invalid]="city.touched && city.invalid" required>
                                     <option value="">---select---</option>
                                     <option value="Pune">Pune</option>
@@ -75,18 +77,23 @@
         <br><br>
 
 
+
         <div class="container">
             <h2>services</h2>
+            
             <form>
                 <div class="checkbox">
                         <div class="form-group">
-                    <label><input type="checkbox" value="breakfast" id="breakfast"  name="breakfast">Breakfast</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                
+                    <label><input type="checkbox" value="breakfast" id="breakfast" name="breakfast">Breakfast</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <label><input type="checkbox" value="lunch" id="lunch" name="lunch">Lunch</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <label><input type="checkbox" value="dinner"id="dinner"  name="dinner">Dinner</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <label><input type="checkbox" value="tiffin" id="tiffin" name="tiffin">Tiffin Service</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                
                 </div>
             </div>
             </form>
+        
         </div>
         <br><br>
         
@@ -109,7 +116,7 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
 
 
-        <button type="submit" class="btn btn-block btn-primary" routerLink="resturant-signup">Register</button>
+        <button type="submit" class="btn btn-block btn-primary">Register</button>
 
 
     </form>

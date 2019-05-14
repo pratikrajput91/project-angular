@@ -4,10 +4,10 @@ export class Restaurant {
     password:string;
     contact:number;
     city:string;
-    breakfast:String;
-    lunch:String
-    dinner:String
-    tiffin:String
+    breakfast:string;
+    lunch:string;
+    dinner:string;
+    tiffin:string;
     
 
 

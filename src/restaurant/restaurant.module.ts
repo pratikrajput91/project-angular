@@ -20,7 +20,7 @@ import { RestaurantService } from './restaurant.service';
         FormsModule,
         ReactiveFormsModule,
         RouterModule.forChild(resturantRoutes),
-     
+    
     ],
 
     exports: [RestaurantLoginComponent,
